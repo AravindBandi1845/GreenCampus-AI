@@ -1,0 +1,18 @@
+Waste management helps reduce environmental pollution.
+
+Waste categories:
+- Wet waste
+- Dry waste
+- E-waste
+- Hazardous waste
+
+Best practices:
+- Segregate waste at source.
+- Recycle reusable materials.
+- Reduce single-use plastics.
+- Promote composting.
+
+Benefits:
+- Cleaner campuses.
+- Reduced landfill burden.
+- Improved public health.
