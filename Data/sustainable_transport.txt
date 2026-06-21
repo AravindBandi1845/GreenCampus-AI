@@ -1,13 +1,60 @@
-Sustainable transportation reduces pollution and traffic congestion.
+Sustainable Transportation
 
-Examples:
-- Public transport.
-- Cycling.
-- Walking.
-- Electric vehicles.
-- Carpooling.
+Sustainable transportation refers to transport systems that minimize environmental impact while meeting the mobility needs of people.
+
+Objectives of Sustainable Transportation:
+- Reduce carbon emissions.
+- Improve air quality.
+- Reduce traffic congestion.
+- Promote energy-efficient travel.
+
+Modes of Sustainable Transportation:
+
+1. Public Transportation
+- Buses
+- Metro systems
+- Local trains
 
 Benefits:
-- Lower greenhouse gas emissions.
+- Reduces fuel consumption.
+- Lowers greenhouse gas emissions.
+- Decreases road congestion.
+
+2. Cycling
+- Environment-friendly.
+- Improves physical health.
+- Requires no fossil fuels.
+
+3. Walking
+- Zero carbon emissions.
+- Promotes healthy lifestyles.
+- Reduces traffic congestion.
+
+4. Electric Vehicles (EVs)
+- Lower emissions compared to conventional vehicles.
+- Energy efficient.
+- Support cleaner transportation systems.
+
+Sustainable Transportation on Campuses:
+- Encourage bicycle usage.
+- Provide dedicated cycling tracks.
+- Promote carpooling among students and staff.
+- Use electric campus shuttle services.
+- Improve pedestrian-friendly infrastructure.
+
+Benefits of Sustainable Transportation:
+- Reduced air pollution.
+- Lower carbon footprint.
+- Improved public health.
 - Reduced fuel consumption.
-- Healthier communities.
+- Support for sustainable cities and communities.
+
+SDG Alignment:
+SDG 11 – Sustainable Cities and Communities
+SDG 13 – Climate Action
+
+Role of Students:
+- Prefer walking or cycling for short distances.
+- Use public transportation whenever possible.
+- Participate in carpooling initiatives.
+- Support environmentally friendly transportation practices.

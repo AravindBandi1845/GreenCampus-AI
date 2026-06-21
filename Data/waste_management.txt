@@ -1,18 +1,43 @@
-Waste management helps reduce environmental pollution.
+Waste Management
 
-Waste categories:
-- Wet waste
-- Dry waste
-- E-waste
-- Hazardous waste
+Waste management is the process of collecting, segregating, treating, recycling, and disposing of waste in an environmentally responsible manner.
 
-Best practices:
-- Segregate waste at source.
+Types of Waste:
+1. Wet Waste:
+- Food scraps
+- Vegetable peels
+- Garden waste
+- Organic matter
+
+Management of Wet Waste:
+- Segregate at source.
+- Use compost bins.
+- Convert organic waste into manure.
+- Avoid mixing with dry waste.
+
+2. Dry Waste:
+- Paper
+- Plastic
+- Glass
+- Metal
+
+Management of Dry Waste:
 - Recycle reusable materials.
-- Reduce single-use plastics.
-- Promote composting.
+- Separate paper, plastic, and metal.
+- Send recyclable waste to authorized recycling centers.
 
-Benefits:
-- Cleaner campuses.
-- Reduced landfill burden.
-- Improved public health.
+3. E-Waste:
+- Mobile phones
+- Computers
+- Batteries
+- Electronic devices
+
+Management of E-Waste:
+- Dispose through certified e-waste collection centers.
+- Never burn electronic waste.
+
+Benefits of Proper Waste Management:
+- Reduces environmental pollution.
+- Improves public health.
+- Conserves natural resources.
+- Supports sustainable development.

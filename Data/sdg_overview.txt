@@ -1,14 +1,26 @@
-The United Nations Sustainable Development Goals (SDGs) aim to achieve a better and more sustainable future.
+United Nations Sustainable Development Goals (SDGs)
 
-Relevant goals:
+The Sustainable Development Goals are a global initiative adopted by the United Nations to achieve a sustainable future for all by 2030.
 
-SDG 11:
-Sustainable Cities and Communities.
+Important SDGs:
 
-SDG 12:
-Responsible Consumption and Production.
+SDG 6: Clean Water and Sanitation
+Ensures availability and sustainable management of water and sanitation.
 
-SDG 13:
-Climate Action.
+SDG 7: Affordable and Clean Energy
+Promotes access to reliable, sustainable, and modern energy.
 
-Educational institutions play a key role in promoting sustainability through awareness, conservation and responsible resource management.
+SDG 11: Sustainable Cities and Communities
+Makes cities and human settlements inclusive, safe, resilient, and sustainable.
+
+SDG 12: Responsible Consumption and Production
+Promotes efficient use of resources and waste reduction.
+
+SDG 13: Climate Action
+Encourages urgent action to combat climate change and its impacts.
+
+Role of Educational Institutions:
+- Promote sustainability awareness.
+- Encourage responsible resource usage.
+- Support environmental initiatives.
+- Develop innovative sustainability solutions.
