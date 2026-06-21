@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 st.title("🌱 GreenCampus AI")
-st.subheader("AI-Powered Sustainability Assistant")
+st.subheader("Intelligent Sustainability Knowledge Assistant")
 
 # ==========================================
 # FIND DATA FOLDER
