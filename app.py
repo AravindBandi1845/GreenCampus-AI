@@ -4,9 +4,9 @@ from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
 
-# =========================
+# ==========================================
 # PAGE CONFIGURATION
-# =========================
+# ==========================================
 
 st.set_page_config(
     page_title="GreenCampus AI",
@@ -17,9 +17,9 @@ st.set_page_config(
 st.title("🌱 GreenCampus AI")
 st.subheader("AI-Powered Sustainability Assistant")
 
-# =========================
+# ==========================================
 # FIND DATA FOLDER
-# =========================
+# ==========================================
 
 data_folder = "data"
 
@@ -27,16 +27,33 @@ if not os.path.exists(data_folder):
     data_folder = "Data"
 
 if not os.path.exists(data_folder):
-    st.error("⚠️ Folder 'data' or 'Data' not found!")
+    st.error("⚠️ Data folder not found! Create a folder named 'data'.")
     st.stop()
 
-# =========================
+# ==========================================
+# TEXT CHUNKING
+# ==========================================
+
+def split_text_into_chunks(text, chunk_size=100, chunk_overlap=20):
+    chunks = []
+    words = text.split()
+    start = 0
+
+    while start < len(words):
+        end = start + chunk_size
+        chunk = " ".join(words[start:end])
+        chunks.append(chunk)
+        start += chunk_size - chunk_overlap
+
+    return chunks
+
+# ==========================================
 # LOAD KNOWLEDGE BASE
-# =========================
+# ==========================================
 
 def load_knowledge_base(folder):
-    docs = []
-    files = []
+    all_chunks = []
+    chunk_sources = []
 
     for file in os.listdir(folder):
         if file.endswith(".txt"):
@@ -46,20 +63,23 @@ def load_knowledge_base(folder):
                 text = f.read().strip()
 
                 if text:
-                    docs.append(text)
-                    files.append(file)
+                    chunks = split_text_into_chunks(text)
 
-    return docs, files
+                    for chunk in chunks:
+                        all_chunks.append(chunk)
+                        chunk_sources.append(file)
 
-documents, filenames = load_knowledge_base(data_folder)
+    return all_chunks, chunk_sources
 
-if not documents:
+documents, sources = load_knowledge_base(data_folder)
+
+if len(documents) == 0:
     st.warning("⚠️ No text files found inside the data folder.")
     st.stop()
 
-# =========================
-# LOAD EMBEDDING MODEL
-# =========================
+# ==========================================
+# LOAD MODEL
+# ==========================================
 
 @st.cache_resource
 def load_model():
@@ -67,57 +87,61 @@ def load_model():
 
 model = load_model()
 
-# =========================
+# ==========================================
 # BUILD FAISS INDEX
-# =========================
+# ==========================================
 
 @st.cache_resource
-def build_index(docs):
+def build_index(_documents):
     embeddings = model.encode(
-        docs,
+        _documents,
         show_progress_bar=False
+    )
+
+    embeddings = np.array(
+        embeddings,
+        dtype=np.float32
     )
 
     dimension = embeddings.shape[1]
 
     index = faiss.IndexFlatL2(dimension)
-
-    index.add(np.array(embeddings))
+    index.add(embeddings)
 
     return index
 
 index = build_index(documents)
 
-# =========================
+# ==========================================
 # CHAT HISTORY
-# =========================
+# ==========================================
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
         {
             "role": "assistant",
-            "content":
-            "Hello! I am your GreenCampus Assistant. Ask me anything about sustainability, waste management, water conservation, energy conservation, or SDGs."
+            "content": (
+                "Hello! I am GreenCampus AI 🌱. "
+                "Ask me about waste management, water conservation, "
+                "energy conservation, climate action, sustainable transportation, "
+                "sustainable campuses, or SDGs."
+            )
         }
     ]
 
-# Display chat history
+# Display old messages
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
 
-# =========================
-# USER QUERY
-# =========================
+# ==========================================
+# USER INPUT
+# ==========================================
 
-query = st.chat_input(
-    "Type your sustainability question here..."
-)
+query = st.chat_input("Ask a sustainability question...")
 
 if query:
-
-    # Show user message
 
     with st.chat_message("user"):
         st.write(query)
@@ -129,67 +153,54 @@ if query:
         }
     )
 
-    # Convert query into embedding
+    # Create query embedding
 
     query_embedding = model.encode(
         [query],
         show_progress_bar=False
     )
 
-    # Retrieve top 2 matching documents
-
-    distances, indices = index.search(
-        np.array(query_embedding),
-        k=2
+    query_embedding = np.array(
+        query_embedding,
+        dtype=np.float32
     )
 
-    retrieved_text = ""
-    source_files = []
+    # Retrieve best matching chunk
 
-    for idx in indices[0]:
+    distances, indices = index.search(
+        query_embedding,
+        k=1
+    )
 
-        if idx != -1 and idx < len(documents):
+    DISTANCE_THRESHOLD = 1.3
 
-            retrieved_text += documents[idx] + " "
+    response = None
+    source_text = "Knowledge Base"
 
-            source_files.append(
-                filenames[idx]
-            )
+    best_distance = distances[0][0]
+    best_index = indices[0][0]
 
-    # Generate concise response
-
-    sentences = retrieved_text.split(". ")
-
-    relevant_sentences = []
-
-    query_words = query.lower().split()
-
-    for sentence in sentences:
-
-        sentence_lower = sentence.lower()
-
-        if any(
-            word in sentence_lower
-            for word in query_words
-        ):
-            relevant_sentences.append(sentence)
-
-    if relevant_sentences:
-        response = ". ".join(
-            relevant_sentences[:4]
-        )
+    if best_index != -1 and best_distance <= DISTANCE_THRESHOLD:
+        response = documents[best_index]
+        source_text = sources[best_index]
     else:
-        response = retrieved_text[:500]
+        response = (
+            "I could not find relevant information in the sustainability knowledge base.\n\n"
+            "Please ask about:\n"
+            "- Waste Management\n"
+            "- Water Conservation\n"
+            "- Energy Conservation\n"
+            "- Climate Action\n"
+            "- Sustainable Transportation\n"
+            "- Sustainable Campuses\n"
+            "- Sustainable Development Goals (SDGs)"
+        )
 
-    # Show assistant response
+    # Display response
 
     with st.chat_message("assistant"):
         st.write(response)
-
-        st.caption(
-            "📚 Source Files: "
-            + ", ".join(source_files)
-        )
+        st.caption(f"📚 Source File: {source_text}")
 
     st.session_state.messages.append(
         {
