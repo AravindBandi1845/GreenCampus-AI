@@ -1,38 +1,138 @@
-# GreenCampus AI 🌿🤖
 
-An intelligent, lightweight Retrieval-Augmented Generation (RAG) assistant designed to provide accurate insights on campus sustainability practices, energy conservation, waste management, and SDG tracking.
+# 🌱 GreenCampus AI
 
----
+### Intelligent Sustainability Knowledge Assistant
 
-## 🚀 Key Features & Architecture
-Unlike heavy, abstract frameworks, this system is built using a **custom, LangChain-free RAG pipeline**. This approach prioritizes minimal execution overhead, absolute transparency over data flow, and precise retrieval control.
+GreenCampus AI is an AI-powered sustainability knowledge assistant developed as part of the IBM SkillsBuild + 1M1B AI & Sustainability Virtual Internship.
 
-*   **Semantic Data Ingestion:** Systematically processes unstructured campus guidelines across specialized sub-domains (`Data/`).
-*   **Vector Embeddings:** Uses `sentence-transformers` to map campus intelligence into high-dimensional vector spaces.
-*   **Localized Context Matching:** Implements native similarity metrics to fetch the exact context needed for user prompts, preventing AI hallucinations.
-*   **Streamlit Interface:** A responsive, interactive user interface designed for intuitive exploration of sustainability data.
+The system enables students, faculty, and administrators to quickly access sustainability-related information through a conversational interface. Instead of manually searching through multiple documents, users can ask questions in natural language and receive relevant information from a verified sustainability knowledge base.
 
 ---
 
-## 🛠️ Tech Stack
-*   **Core Logic:** Python 3.9+
-*   **UI Framework:** Streamlit
-*   **Embeddings & Search:** SentenceTransformers, NumPy
-*   **Environment Management:** Virtualenv
+## 🌍 Sustainable Development Goals (SDGs)
+
+This project primarily supports:
+
+- SDG 11 – Sustainable Cities and Communities
+- SDG 12 – Responsible Consumption and Production
+- SDG 13 – Climate Action
+
+By improving access to sustainability knowledge, GreenCampus AI encourages environmentally responsible practices across educational institutions.
 
 ---
 
-## 📦 Project Structure
+## 🚀 Live Demo
+
+🔗 [https://greencampus-ai-demo.streamlit.app/](https://greencampus-ai-3ownmhea8jdzwotdsfqe8o.streamlit.app/)
+
+> If the application is inactive, please wait a few seconds while Streamlit initializes the service.
+
+---
+
+## 📖 Project Overview
+
+Many sustainability guidelines are distributed across reports, notices, and policy documents, making information difficult to access quickly.
+
+GreenCampus AI addresses this challenge by providing:
+
+- Instant access to sustainability information
+- Natural language question answering
+- Source-based knowledge retrieval
+- Improved awareness of sustainability practices
+
+---
+
+## ⚙️ How It Works
+
+1. User submits a sustainability-related question.
+2. The question is converted into an embedding using Sentence Transformers.
+3. FAISS performs semantic similarity search.
+4. The most relevant knowledge chunk is retrieved.
+5. The response is displayed along with its source document.
+
+---
+
+## ✨ Key Features
+
+### 📄 Verified Knowledge Retrieval
+Responses are generated from verified sustainability documents.
+
+### 🔍 Semantic Search
+Uses vector similarity search to identify the most relevant information.
+
+### 📚 Source Transparency
+Displays the originating source file for every response.
+
+### 🛡️ Domain-Specific Responses
+Designed specifically for sustainability-related topics.
+
+### 🚫 Out-of-Domain Query Handling
+Politely informs users when information is unavailable in the knowledge base.
+
+---
+
+## 🛠 Technology Stack
+
+| Component | Technology |
+|------------|------------|
+| Frontend | Streamlit |
+| Embeddings | Sentence Transformers |
+| Vector Search | FAISS |
+| Language | Python |
+| Knowledge Base | Sustainability Text Documents |
+
+---
+
+## 📂 Knowledge Base Topics
+
+The system currently supports:
+
+- Waste Management
+- Water Conservation
+- Energy Conservation
+- Climate Action
+- Sustainable Transportation
+- Sustainable Campus Practices
+- Sustainable Development Goals (SDGs)
+
+---
+
+## 📁 Project Structure
+
 ```text
-IBM_AI/
+GreenCampus-AI/
 │
-├── app.py                  # Core application entry point & RAG pipeline
-├── .gitignore              # Prevents staging system dependencies & venv bloat
-├── README.md               # Project documentation and architecture guide
-├── LICENSE                 # Repository license terms
-└── Data/                   # Domain-specific knowledge base
-    ├── energy_conservation.txt
-    ├── sdg_overview.txt
-    ├── sustainable_transport.txt
-    ├── waste_management.txt
-    └── water_conservation.txt
+├── Data/
+│   ├── waste_management.txt
+│   ├── water_conservation.txt
+│   ├── energy_conservation.txt
+│   ├── climate_action.txt
+│   ├── sustainable_transport.txt
+│   ├── sustainable_campus.txt
+│   └── sdg_overview.txt
+│
+├── app.py
+├── requirements.txt
+└── README.md
+````
+
+---
+
+## 🌱 Expected Impact
+
+* Faster access to sustainability information
+* Improved environmental awareness
+* Better engagement with campus sustainability initiatives
+* Support for SDG-focused educational activities
+
+---
+
+## 👨‍💻 Developed By
+
+**Aravind Bandi**
+B.Tech – Computer Science and Engineering (AI & ML)
+Guru Nanak Institute of Technology
+
+Developed as part of the **IBM SkillsBuild + 1M1B AI & Sustainability Virtual Internship (2026)**.
+
+
