@@ -115,7 +115,6 @@ GreenCampus-AI/
 ├── requirements.txt
 └── README.md
 ````
-
 ---
 
 ## 🌱 Expected Impact
